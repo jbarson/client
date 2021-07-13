@@ -7,7 +7,7 @@ function GenreList() {
   const [genres, setGenres] = useState([])
 
   useEffect(() => {
-    axios.get(`https://sleepy-castle-07849.herokuapp.com/api/genres`)
+    axios.get(`${process.env.REACT_APP_API_URL}/api/genres`)
       .then(res => {
         console.log(res.data)
         setGenres(res.data)
