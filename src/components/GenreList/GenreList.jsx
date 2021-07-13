@@ -15,7 +15,6 @@ function GenreList() {
   }, [])
 
   document.title = "Welcome to Lauren's Bookstore"
-  console.log(API_URL)
   return (
       <main className="genre__container">
           {genres.map(genre => <Genre key={genre.id} genreName={genre.name} />)}
