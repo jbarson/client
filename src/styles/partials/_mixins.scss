@@ -1,0 +1,42 @@
+@use './colors';
+@use './variables' as *;
+
+//mixin for resetting the default styles that are applied to a ul element
+@mixin reset-list {
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+}
+
+//first pass at our mixin for resetting the bottom border
+//but not great because we like to define our mixins at the top of our selector rules, and then it gets overwritten
+@mixin reset-border-bottom {
+    border-bottom: none;
+}
+
+//second pass at our border mixin, using a parameter for border-width, and a parameter for the border-bottom-width (this one we'll default to border-width in case nothing is defined)
+@mixin border-container($border-width, $border-bottom: $border-width) {
+    border: $border-width solid colors.$black;
+
+    //conditional for evaluating the border-bottom-width if it's set to 0, or any other value
+    @if ($border-bottom == 0) {
+        //if 0, set the border bottom to none
+        border-bottom: none;
+    } @else {
+        //otherwise set the border bottom width to whatever the value of border-bottom is
+        border-bottom-width: $border-bottom;
+    }
+}
+
+//third pass at our border mixin, using a parameter for border width, and including our @content rule so we can nest styles within our mixin (check out our styles.scss file - lines 16 & 134)
+@mixin better-border($border-width) {
+    border: $border-width solid colors.$black;
+    @content;
+}
+
+//mixins for media queries
+@mixin tablet {
+    @media (min-width: $tablet-breakpoint) {
+        @content;
+    }
+}

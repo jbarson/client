@@ -1,0 +1,256 @@
+@use 'partials/colors';
+@use 'partials/variables' as *;
+@use 'partials/mixins' as *;
+@use 'partials/typography' as *; 
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: 'Ubuntu'; 
+}
+
+/* =============== header ================= */
+
+// .header {
+//     //we decided that this wasn't the best application, because without doing some digging, we have no idea what the 0 is for. 
+//     // @include border-container($border-width, 0);
+
+//     //here we have our last border mixin where we can nest styles within our mixin, and when this gets evaluated to css **because of the placement of our @content rule within our mixin** these styles get applied after our border style. So here we can use this to overwrite the border-bottom. 
+//     @include better-border($border-width) {
+//         border-bottom: none;
+//     };
+//     background: $background-image;
+
+//     &__container {
+//         background-color: colors.$primary;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: space-between;
+//         padding: 0 $padding*2; //we can apply calculations using variables & numbers now
+
+//         @include tablet {
+//             flex-direction: row;
+//         }
+//     } 
+    
+//     &__title {
+//         /* flexbox trick to single out an item along your main axis and give it the most margin it can possible have */
+//         /* margin-right: auto; */
+//         color: colors.$white;
+//         text-align: center;
+//     }
+// }
+    
+// /* =============== header navigation ================= */
+
+// .navbar {
+
+//     &__list {
+//         //here's our mixin for resetting the default values of a ul element
+//         @include reset-list; 
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         height: 100%;
+
+//         @include tablet {
+//             flex-direction: row;
+//         }
+//     }
+    
+//     &__list-item {
+//         padding: 0 $padding/2 $padding/2;
+
+//         @include tablet {
+//             padding-bottom: 0;
+//         }
+//     }
+    
+//     &__link {
+//         text-decoration: none;
+//         color: colors.$white;
+//     }
+// }
+
+
+// /* =============== main content ================= */
+
+// .main {
+
+//     &__content {
+//         @include better-border($border-width) {
+//             border-bottom: none;
+//         };
+//         margin: 0;
+//         padding: $padding 0 $padding*2;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         text-align: center;
+        
+//         &:nth-child(odd) {
+//             background-color: colors.$secondary;
+//         }
+    
+//         &:nth-child(even) {
+//             background-color: colors.$primary;
+//         }
+//     }
+    
+    
+//     &__content-title {
+//         margin: $margin auto;
+//         border-bottom: $border-width solid colors.$accent;
+//         width: 30%;
+//         padding-bottom: $padding/4;
+//     }
+    
+//     &__content-description {
+    
+//     }
+    
+//     &__content-container {
+//         width: 100%;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: space-evenly;
+//         flex-wrap: wrap;
+
+//         @include tablet {
+//             flex-direction: row;
+//         }
+//     }
+// }
+
+
+// /* =============== genre of book ================= */
+
+// .genre {
+//     margin: $margin*2;
+
+//     @include tablet {
+//         max-width: calc(50% - #{$margin}*4);
+//     }
+    
+//     &__book-container {
+//         // background: white;
+//         // border: black solid 2px;
+//         position: relative;
+        
+//     }
+    
+//     &__book-cover {
+//         min-width: 30%;
+//         max-width: 50%;
+//     }
+
+//     &__title {
+//         margin: 0;
+//         position: absolute;
+//         top: 42%;
+//         left: 49%;
+//         color: white;
+//         transform: translate(-50%, -50%) rotateZ(-18deg) skew(18deg, 3deg);
+//         text-align: center;
+//         max-width: 100px;
+//         font-size: 100%;
+
+//         @include tablet {
+//             font-size: 140%;
+//             top: 41%;
+//             left: 49%;
+//         }
+//     }
+
+//     &__description {
+//         margin-bottom: 0
+//     }
+// }
+
+// /* =============== location of bookstores ================= */
+
+// .location {
+
+//     &__title {
+    
+//     }
+//     &__address {
+    
+//     }
+//     &__phone-number {
+    
+//     }
+// }
+
+// /* =============== footer ================= */
+
+// .footer {
+//     //here we have our last border mixin again, but this one is different because we're not nesting any other styles within here. So even though we defined out mixin using the @content rule, we don't actually need to use it all the time. 
+//     @include better-border($border-width);
+//     background: $background-image;
+// }
+// .social-nav {
+//     background-color: colors.$primary;
+//     padding: $padding 0;
+    
+//     &__list {
+//         @include reset-list;
+//         display: flex;
+//         justify-content: center;
+//     }
+
+//     &__list-item {
+//         padding: 0 $padding;
+//     }
+
+//     &__link {
+    
+//     }
+
+//     &__icon {
+//         background-color: colors.$white;
+//         border-radius: 4px;
+//     }
+// }
+
+// //strict css breakpoint
+// // @media (min-width: 768px) {
+// //     .header__container {
+// //         background-color: red;
+// //     }
+// // }
+
+// //use a variable for my breakpoint
+// // $tablet-breakpoint: 768px;
+
+// // @media (min-width: $tablet-breakpoint) {
+// //     .header__container {
+// //         background-color: red;
+// //     }
+// // }
+
+// //use an interpolated variable
+// // $tablet-breakpoint: 'min-width: 768px';
+
+// // @media (#{$tablet-breakpoint}) {
+// //     .header__container {
+// //         background-color: red;
+// //     }
+// // }
+
+// //using a mixin
+// // $tablet-breakpoint: 768px;
+// // @mixin tablet {
+// //     @media (min-width: $tablet-breakpoint) {
+// //         @content;
+// //     }
+// // }
+
+// // .header__container {
+// //     @include tablet {
+// //         background-color: red;
+// //     }
+// // }
+

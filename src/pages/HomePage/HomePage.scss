@@ -1,0 +1,39 @@
+@use '../../styles/partials/colors';
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+
+.main {
+
+    &__content {
+        @include better-border($border-width) {
+            border-bottom: none;
+        };
+        margin: 0;
+        padding: 0 0 $padding*2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        
+        &:nth-child(odd) {
+            background-color: colors.$secondary;
+        }
+    
+        &:nth-child(even) {
+            background-color: colors.$primary;
+        }
+    }
+    
+    &__content-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+
+        @include tablet {
+            flex-direction: row;
+        }
+    }
+}

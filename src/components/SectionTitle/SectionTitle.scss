@@ -1,0 +1,25 @@
+@use '../../styles/partials/colors';
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.section-title {
+    width: 50%;
+    margin: $margin auto $margin*4;
+    text-align: center;
+    
+    @include tablet {
+        width: 30%;
+
+    }
+
+    &__name {
+        margin: $margin auto;
+        border-bottom: $border-width solid colors.$accent;
+        // width: 30%;
+        padding-bottom: $padding/4;
+    }
+    
+    &__description {
+    
+    }
+}

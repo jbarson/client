@@ -1,0 +1,26 @@
+@use '../../styles/partials/colors';
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+
+.header { 
+    @include better-border($border-width) {
+        border-bottom: none;
+    };
+
+    &__container {
+        background-color: colors.$primary;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0 $padding*2; 
+        @include tablet {
+            flex-direction: row;
+        }
+    } 
+    
+    &__title {
+        color: colors.$white;
+        text-align: center;
+    }
+}

@@ -1,0 +1,39 @@
+@use '../../styles/partials/colors';
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.navbar {
+
+    &__list {
+        //here's our mixin for resetting the default values of a ul element
+        @include reset-list; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+
+        @include tablet {
+            flex-direction: row;
+        }
+    }
+    
+    &__list-item {
+        padding: 0 $padding/2 $padding/2;
+
+        @include tablet {
+            padding-bottom: 0;
+        }
+
+    }
+    
+    &__link {
+        text-decoration: none;
+        color: colors.$white;
+        border-bottom: 2px solid transparent;
+        
+        &--active {
+            // color: colors.$white;
+            border-bottom: 2px solid colors.$white;
+        }
+    }
+}
