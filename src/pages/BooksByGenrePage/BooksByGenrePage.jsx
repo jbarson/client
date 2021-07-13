@@ -11,7 +11,7 @@ function BooksByGenrePage() {
     const { genreName } = useParams();
 
     useEffect(() => {
-        axios.get(`/api/books/${genreName}`)
+        axios.get(`${process.env.API_URL}/api/books/${genreName}`)
             .then(res => {
                 setBooks(res.data)
             })

@@ -7,7 +7,7 @@ function GenreList() {
   const [genres, setGenres] = useState([])
 
   useEffect(() => {
-    axios.get('/api/genres')
+    axios.get(`${process.env.API_URL}/api/genres`)
       .then(res => {
         setGenres(res.data)
       })
