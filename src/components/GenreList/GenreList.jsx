@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Genre from '../../components/Genre/Genre';
 import './GenreList.scss';
-const API_URL = process.env.API_URL
 
 function GenreList() {  
   const [genres, setGenres] = useState([])
