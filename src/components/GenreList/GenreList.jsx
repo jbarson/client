@@ -5,13 +5,14 @@ import './GenreList.scss';
 
 function GenreList() {  
   const [genres, setGenres] = useState([])
-
+  console.log(process.env)
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/api/genres`)
       .then(res => {
         console.log(res.data)
         setGenres(res.data)
       })
+      .catch(console.error)
   }, [])
 
   document.title = "Welcome to Lauren's Bookstore"
