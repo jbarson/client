@@ -5,13 +5,14 @@ import { capitalize } from '../../utils/capitalize';
 import './BooksByGenrePage.scss';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+const API_URL = process.env.API_URL
 
 function BooksByGenrePage() {
     const [books, setBooks] = useState([])
     const { genreName } = useParams();
 
     useEffect(() => {
-        axios.get(`${process.env.API_URL}/api/books/${genreName}`)
+        axios.get(`${API_URL}/api/books/${genreName}`)
             .then(res => {
               console.log(res.data)
                 setBooks(res.data)
