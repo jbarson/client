@@ -12,7 +12,7 @@ function BooksByGenrePage() {
     const { genreName } = useParams();
 
     useEffect(() => {
-        axios.get(`${API_URL}/api/books/${genreName}`)
+        axios.get(`https://sleepy-castle-07849.herokuapp.com/api/books/${genreName}`)
             .then(res => {
               console.log(res.data)
                 setBooks(res.data)
