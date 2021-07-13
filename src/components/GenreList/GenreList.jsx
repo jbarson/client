@@ -9,6 +9,7 @@ function GenreList() {
   useEffect(() => {
     axios.get(`${process.env.API_URL}/api/genres`)
       .then(res => {
+        console.log(res.data)
         setGenres(res.data)
       })
   }, [])

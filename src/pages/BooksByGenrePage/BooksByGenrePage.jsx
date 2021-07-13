@@ -13,6 +13,7 @@ function BooksByGenrePage() {
     useEffect(() => {
         axios.get(`${process.env.API_URL}/api/books/${genreName}`)
             .then(res => {
+              console.log(res.data)
                 setBooks(res.data)
             })
             .catch(err => setBooks([]))
